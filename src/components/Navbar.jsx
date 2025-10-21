@@ -1,52 +1,85 @@
 import React from "react";
-import { NavLink } from "react-router";
-import { Link } from "react-router";
+import { NavLink, Link } from "react-router-dom";
+import { FaGamepad } from "react-icons/fa";
 
 const Navbar = () => {
-  const link = (
+  const navLinks = (
     <>
-      <NavLink to="/"><li className="border-2 py-1 px-2 rounded-lg">Home</li></NavLink>
-      <NavLink to="/gallery"><li className="border-2 py-1 px-2 rounded-lg">Game Gallery</li></NavLink>
+      <NavLink
+        to="/"
+        className={({ isActive }) =>
+          `px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 
+          ${isActive ? "bg-cyan-500/20 text-cyan-400" : "text-gray-300 hover:text-cyan-400"}`
+        }
+      >
+        Home
+      </NavLink>
+      <NavLink
+        to="/gallery"
+        className={({ isActive }) =>
+          `px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 
+          ${isActive ? "bg-cyan-500/20 text-cyan-400" : "text-gray-300 hover:text-cyan-400"}`
+        }
+      >
+        Game Gallery
+      </NavLink>
     </>
   );
 
   return (
-    <div className="navbar bg-base-100 shadow-sm">
-      <div className="navbar-start">
-        <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-gradient-to-b from-[#0a0a0a] via-[#111] to-[#1a1a1a] text-gray-200 shadow-lg border-b border-gray-800 backdrop-blur-md">
+      <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-3">
+        {/* Logo + Title */}
+        <Link to="/" className="flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition">
+          <FaGamepad className="text-2xl" />
+          <h1 className="text-xl md:text-2xl font-extrabold tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-green-400">
+            GameStore
+          </h1>
+        </Link>
+
+        {/* Desktop Links */}
+        <div className="hidden md:flex gap-6 items-center">{navLinks}</div>
+
+        {/* Login Button */}
+        <div className="hidden md:block">
+          <Link
+            to="/login"
+            className="px-5 py-2 bg-gradient-to-r from-cyan-500 to-green-500 text-black font-semibold rounded-lg hover:from-cyan-400 hover:to-green-400 transition-all duration-300 shadow-md hover:shadow-cyan-500/30"
+          >
+            Login
+          </Link>
+        </div>
+
+        {/* Mobile Menu */}
+        <div className="md:hidden dropdown dropdown-end">
+          <label tabIndex={0} className="btn btn-ghost m-0 p-1">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
+              className="w-6 h-6 text-gray-300"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
             >
-              {" "}
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h8m-8 6h16"
-              />{" "}
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
             </svg>
-          </div>
+          </label>
           <ul
-            tabIndex="-1"
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+            tabIndex={0}
+            className="menu menu-sm dropdown-content mt-3 p-4 shadow bg-[#111] rounded-lg w-48 border border-gray-800"
           >
-            {link}
+            {navLinks}
+            <li className="mt-2">
+              <Link
+                to="/login"
+                className="block w-full text-center px-4 py-2 bg-gradient-to-r from-cyan-500 to-green-500 text-black font-semibold rounded-lg hover:from-cyan-400 hover:to-green-400 transition-all duration-300"
+              >
+                Login
+              </Link>
+            </li>
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">Popular Game Store</a>
       </div>
-      <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal flex gap-2 px-1">{link}</ul>
-      </div>
-      <div className="navbar-end">
-        <a className="btn"><Link to="/login">Login</Link></a>
-      </div>
-    </div>
+    </nav>
   );
 };
 
