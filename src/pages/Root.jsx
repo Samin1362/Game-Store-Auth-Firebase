@@ -8,6 +8,9 @@ const Root = () => {
       <header>
         <Navbar></Navbar>
       </header>
+      <main>
+        
+      </main>
       <footer>
         <Footer></Footer>
       </footer>
