@@ -1,8 +1,14 @@
-import React from "react";
+import React, { use } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { FaGamepad } from "react-icons/fa";
+import { AuthContext } from "../provider/AuthProvider";
 
 const Navbar = () => {
+
+  const {user} = use(AuthContext);
+
+  console.log(user)
+
   const navLinks = (
     <>
       <NavLink

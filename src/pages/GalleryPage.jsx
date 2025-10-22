@@ -62,7 +62,7 @@ const GalleryPage = () => {
             </p>
             <button
               onClick={() => setSearchQuery("")}
-              className="mt-4 px-6 py-2 bg-gradient-to-r from-cyan-500 to-green-500 text-white rounded-lg hover:from-cyan-400 hover:to-green-400 transition-all duration-300"
+              className="mt-4 px-6 py-2 bg-linear-to-r from-cyan-500 to-green-500 text-white rounded-lg hover:from-cyan-400 hover:to-green-400 transition-all duration-300"
             >
               Clear Search
             </button>
