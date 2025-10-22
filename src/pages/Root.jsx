@@ -9,7 +9,7 @@ const Root = () => {
     <div>
       <header className="flex flex-col">
         <Navbar></Navbar>
-        <div className="h-[300px] sm:h-[400px] md:h-[500px] overflow-hidden">
+        <div className="mt-[65px] h-[300px] sm:h-[400px] md:h-[500px] overflow-hidden">
           <Banner />
         </div>
       </header>

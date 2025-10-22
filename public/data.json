@@ -42,7 +42,7 @@
   {
     "id": "5",
     "title": "Clash of Clans",
-    "coverPhoto": "https://example.com/images/clashofclans.png",
+    "coverPhoto": "https://clash-wiki.ru/images/media/covers/2014_halloween_cover_no_logo.jpg",
     "category": "Strategy",
     "downloadLink": "https://supercell.com/en/games/clashofclans/",
     "description": "Build your village, train troops, and clash with millions of players worldwide in this classic strategy game.",
@@ -72,7 +72,7 @@
   {
     "id": "8",
     "title": "Minecraft",
-    "coverPhoto": "https://example.com/images/minecraft.png",
+    "coverPhoto": "https://wallpapers.com/images/featured/minecraft-background-cfljc4haleghnajo.jpg",
     "category": "Sandbox",
     "downloadLink": "https://www.minecraft.net/",
     "description": "Minecraft lets you build, explore, and survive in infinite worlds made of blocks limited only by your imagination.",

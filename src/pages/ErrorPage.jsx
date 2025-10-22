@@ -6,7 +6,7 @@ import Footer from "../components/Footer";
 
 const ErrorPage = () => {
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-b from-gray-50 to-gray-100 text-gray-800">
+    <div className="min-h-screen mt-[70px] flex flex-col bg-gradient-to-b from-gray-50 to-gray-100 text-gray-800">
       <Navbar />
 
       <div className="flex flex-1 flex-col items-center justify-center text-center px-4">
