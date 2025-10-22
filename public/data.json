@@ -12,7 +12,7 @@
   {
     "id": "2",
     "title": "Call of Duty: Mobile",
-    "coverPhoto": "https://example.com/images/codmobile.png",
+    "coverPhoto": "https://static0.srcdn.com/wordpress/wp-content/uploads/2021/07/Call-of-Duty-Cover-Arts-Used-To-Tell-Hilarious-Narrative.jpg?w=1200&h=675&fit=crop",
     "category": "FPS",
     "downloadLink": "https://www.callofduty.com/mobile",
     "description": "Call of Duty: Mobile offers intense shooting action across multiple maps and game modes with iconic weapons and operators.",
@@ -22,7 +22,7 @@
   {
     "id": "3",
     "title": "Genshin Impact",
-    "coverPhoto": "https://example.com/images/genshin.png",
+    "coverPhoto": "https://i.redd.it/6ivfjudunzz51.png",
     "category": "RPG",
     "downloadLink": "https://genshin.hoyoverse.com/",
     "description": "Genshin Impact is an open-world action RPG featuring elemental magic, character swapping, and breathtaking exploration.",
@@ -32,7 +32,7 @@
   {
     "id": "4",
     "title": "Asphalt 9: Legends",
-    "coverPhoto": "https://example.com/images/asphalt9.png",
+    "coverPhoto": "https://www.gameloft.com/minisites/p/index.php/alegends/assets/os/img/A9_MetaImage.jpg",
     "category": "Racing",
     "downloadLink": "https://asphaltlegends.com/",
     "description": "Race across stunning locations with luxury cars in Asphalt 9: Legends — the ultimate arcade racing experience.",
@@ -52,7 +52,7 @@
   {
     "id": "6",
     "title": "Valorant",
-    "coverPhoto": "https://example.com/images/valorant.png",
+    "coverPhoto": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTI__k2IGehiWBnihAnXztRlEQ1pQMxHvOkA&s",
     "category": "FPS",
     "downloadLink": "https://playvalorant.com/",
     "description": "Valorant is a tactical 5v5 shooter where precise gunplay meets unique agent abilities for a competitive edge.",
@@ -62,7 +62,7 @@
   {
     "id": "7",
     "title": "Fortnite",
-    "coverPhoto": "https://example.com/images/fortnite.png",
+    "coverPhoto": "https://cdnb.artstation.com/p/assets/images/images/006/737/939/large/vitaliy-naymushin-fortnite-keyart-final.jpg?1500907440",
     "category": "Battle Royale",
     "downloadLink": "https://www.epicgames.com/fortnite/en-US/home",
     "description": "Fortnite combines survival, building, and shooting mechanics in a colorful world of endless creativity.",
@@ -82,7 +82,7 @@
   {
     "id": "9",
     "title": "Among Us",
-    "coverPhoto": "https://example.com/images/amongus.png",
+    "coverPhoto": "https://static0.srcdn.com/wordpress/wp-content/uploads/2020/09/Among-Us-Cover-Art.jpg",
     "category": "Party",
     "downloadLink": "https://www.innersloth.com/games/among-us/",
     "description": "Among Us is a social deduction game where crewmates complete tasks while impostors sabotage and deceive.",
@@ -92,7 +92,7 @@
   {
     "id": "10",
     "title": "FIFA Mobile",
-    "coverPhoto": "https://example.com/images/fifamobile.png",
+    "coverPhoto": "https://www.fifaultimateteam.it/en/wp-content/uploads/2022/01/cover-official-fifa-mobile-new-season.webp",
     "category": "Sports",
     "downloadLink": "https://www.ea.com/games/fifa/fifa-mobile",
     "description": "FIFA Mobile lets you build your ultimate team and compete in real-time PvP matches across leagues.",
@@ -102,7 +102,7 @@
   {
     "id": "11",
     "title": "League of Legends: Wild Rift",
-    "coverPhoto": "https://example.com/images/wildrift.png",
+    "coverPhoto": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/news_live/3705653167ef8f43acdc03fb2f0a469d5b3086fd-1920x1080.jpg",
     "category": "MOBA",
     "downloadLink": "https://wildrift.leagueoflegends.com/",
     "description": "Wild Rift brings the League of Legends experience to mobile with fast-paced 5v5 MOBA gameplay.",
@@ -112,7 +112,7 @@
   {
     "id": "12",
     "title": "Apex Legends Mobile",
-    "coverPhoto": "https://example.com/images/apexmobile.png",
+    "coverPhoto": "https://cdn.mobygames.com/covers/10562813-apex-legends-mobile-iphone-front-cover.jpg",
     "category": "Battle Royale",
     "downloadLink": "https://www.ea.com/games/apex-legends",
     "description": "Apex Legends Mobile delivers hero-based battle royale action with tactical abilities and team synergy.",
@@ -122,7 +122,7 @@
   {
     "id": "13",
     "title": "Clash Royale",
-    "coverPhoto": "https://example.com/images/clashroyale.png",
+    "coverPhoto": "https://supercell.com/images/8654bffbaa77efb91243d3706b739c25/og_clashroyale.d235f90b.jpg",
     "category": "Strategy",
     "downloadLink": "https://supercell.com/en/games/clashroyale/",
     "description": "Clash Royale blends card collection and real-time strategy in fast-paced PvP battles.",
@@ -132,7 +132,7 @@
   {
     "id": "14",
     "title": "Subway Surfers",
-    "coverPhoto": "https://example.com/images/subwaysurfers.png",
+    "coverPhoto": "https://cdn-images.dzcdn.net/images/cover/a0a2784072361fda59c676ab5fd9794b/0x1900-000000-80-0-0.jpg",
     "category": "Arcade",
     "downloadLink": "https://sybogames.com/subway-surfers/",
     "description": "Dash and dodge trains in this high-speed endless runner full of colorful graphics and excitement.",
@@ -142,7 +142,7 @@
   {
     "id": "15",
     "title": "Free Fire",
-    "coverPhoto": "https://example.com/images/freefire.png",
+    "coverPhoto": "https://wallpapers.com/images/featured/free-fire-gi0jpopdq4b0q5aj.jpg",
     "category": "Battle Royale",
     "downloadLink": "https://ff.garena.com/",
     "description": "Garena Free Fire offers fast 10-minute matches where players battle to be the last survivor.",
@@ -152,7 +152,7 @@
   {
     "id": "16",
     "title": "Candy Crush Saga",
-    "coverPhoto": "https://example.com/images/candycrush.png",
+    "coverPhoto": "https://www.king.com/media/r3dbpf3e/candycrush.webp?width=1200&height=627&v=133867610452900000&format=webp&quality=85",
     "category": "Puzzle",
     "downloadLink": "https://king.com/game/candycrush",
     "description": "Match colorful candies and solve challenging puzzles in one of the most popular casual games ever.",
@@ -162,7 +162,7 @@
   {
     "id": "17",
     "title": "Mobile Legends: Bang Bang",
-    "coverPhoto": "https://example.com/images/mobilelegends.png",
+    "coverPhoto": "https://cdn.gamerbraves.com/2020/06/mobile-legends-bang-bang.jpg",
     "category": "MOBA",
     "downloadLink": "https://m.mobilelegends.com/",
     "description": "Team up with friends in 5v5 MOBA battles filled with heroes, tactics, and intense team fights.",
@@ -172,7 +172,7 @@
   {
     "id": "18",
     "title": "Need for Speed: No Limits",
-    "coverPhoto": "https://example.com/images/nfsnolimits.png",
+    "coverPhoto": "https://images.alphacoders.com/699/thumb-1920-699538.jpg",
     "category": "Racing",
     "downloadLink": "https://www.ea.com/games/need-for-speed/need-for-speed-no-limits",
     "description": "Build your dream car and dominate the underground street racing scene in NFS: No Limits.",
@@ -182,7 +182,7 @@
   {
     "id": "19",
     "title": "Brawl Stars",
-    "coverPhoto": "https://example.com/images/brawlstars.png",
+    "coverPhoto": "https://i.redd.it/24xw5mxdocc21.png",
     "category": "Action",
     "downloadLink": "https://supercell.com/en/games/brawlstars/",
     "description": "Battle in fast-paced multiplayer matches using a roster of unique characters called Brawlers.",
@@ -192,7 +192,7 @@
   {
     "id": "20",
     "title": "The Sims Mobile",
-    "coverPhoto": "https://example.com/images/simsmobile.png",
+    "coverPhoto": "https://media.contentapi.ea.com/content/dam/eacom/SIMS/Mobile/images/2018/02/tsm-featured-image-16-9.jpg.adapt.crop16x9.1023w.jpg",
     "category": "Simulation",
     "downloadLink": "https://www.ea.com/games/the-sims/the-sims-mobile",
     "description": "Create your Sims, design their homes, and live out their stories in this life simulation experience.",

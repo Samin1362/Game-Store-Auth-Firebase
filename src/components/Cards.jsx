@@ -1,12 +1,11 @@
 import Card from './Card';
-import React from 'react';
 
 const Cards = ({games}) => {
 
   return (
-    <div className='flex gap-4 items-center justify-center'>
+    <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 items-center justify-center'>
       {
-        games.map(game => <Card game={game}></Card>)
+        games.map(game => <Card key={game.id} game={game}></Card>)
       }
     </div>
   );
