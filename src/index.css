@@ -6,6 +6,7 @@
   font-style: normal;
 }
 
+
 @import "tailwindcss";
 @plugin "daisyui" {
   themes: light --default;
