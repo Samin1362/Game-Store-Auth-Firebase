@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Link } from "react-router";
@@ -12,6 +12,11 @@ import {
 
 const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
+
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -30,16 +35,16 @@ const LoginPage = () => {
           {/* Card with Glow Effect */}
           <div className="relative">
             {/* Glow Effect */}
-            <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 via-green-500/20 to-transparent blur-3xl -z-10" />
+            <div className="absolute inset-0 bg-linear-to-br from-cyan-500/20 via-green-500/20 to-transparent blur-3xl -z-10" />
 
             {/* Login Card */}
-            <div className="bg-gradient-to-b from-[#111] to-[#1a1a1a] border border-gray-800 rounded-2xl shadow-2xl p-8">
+            <div className="bg-linear-to-b from-[#111] to-[#1a1a1a] border border-gray-800 rounded-2xl shadow-2xl p-8">
               {/* Header */}
               <div className="text-center mb-8">
                 <div className="flex items-center justify-center gap-2 mb-3">
                   <FaGamepad className="text-4xl text-cyan-400" />
                 </div>
-                <h1 className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-green-400 mb-2">
+                <h1 className="text-3xl font-extrabold text-transparent bg-clip-text bg-linear-to-r from-cyan-400 to-green-400 mb-2">
                   Welcome Back!
                 </h1>
                 <p className="text-gray-400 text-sm">

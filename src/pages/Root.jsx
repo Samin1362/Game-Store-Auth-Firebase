@@ -3,6 +3,7 @@ import Banner from "../components/Banner";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import React from "react";
+import RightSide from "../components/RightSide";
 
 const Root = () => {
   return (
@@ -13,10 +14,13 @@ const Root = () => {
           <Banner />
         </div>
       </header>
-      <main>
-        <aside></aside>
-        <Outlet></Outlet>
-        <aside></aside>
+      <main className="flex">
+        <div className="w-3/4">
+          <Outlet></Outlet>
+        </div>
+        <aside className="w-1/4 mt-[30px]">
+          <RightSide></RightSide>
+        </aside>
       </main>
       <footer>
         <Footer></Footer>

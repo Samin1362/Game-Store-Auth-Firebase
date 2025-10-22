@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { useLoaderData } from "react-router";
@@ -8,6 +8,11 @@ import { Search } from "lucide-react";
 const GalleryPage = () => {
   const data = useLoaderData();
   const [searchQuery, setSearchQuery] = useState("");
+
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, []);
 
   // Filter games based on search query
   const filteredGames = data.filter((game) =>
@@ -21,7 +26,7 @@ const GalleryPage = () => {
       </nav>
       <main className="mt-[65px] max-w-7xl mx-auto px-4 py-8">
         <header className="mb-8">
-          <h1 className="font-bold text-3xl text-center mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-green-400">
+          <h1 className="font-bold text-3xl text-center mb-6 text-transparent bg-clip-text bg-linear-to-r from-cyan-400 to-green-400">
             All Games
           </h1>
 

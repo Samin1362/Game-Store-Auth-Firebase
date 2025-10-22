@@ -23,7 +23,7 @@ const Banner = () => {
   const nextSlide = () => setCurrent((prev) => (prev + 1) % images.length);
 
   return (
-    <div className="relative w-full h-[200px] md:h-[600px] overflow-hidden rounded-2xl shadow-xl bg-gradient-to-b from-black via-[#111] to-black">
+    <div className="relative w-full h-[200px] md:h-[600px] overflow-hidden rounded-2xl shadow-xl bg-linear-to-b from-black via-[#111] to-black">
       {/* Slides */}
       {images.map((img, index) => (
         <div

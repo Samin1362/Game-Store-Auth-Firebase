@@ -209,7 +209,6 @@ const GameDetails = () => {
                     <FaDownload />
                     Download
                   </a>
-
                 </div>
               </div>
             </div>
