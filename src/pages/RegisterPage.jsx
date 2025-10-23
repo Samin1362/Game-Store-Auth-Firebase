@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, use } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Link } from "react-router";
@@ -10,10 +10,13 @@ import {
   FaEye,
   FaEyeSlash,
 } from "react-icons/fa";
+import { AuthContext } from "../provider/AuthProvider";
 
 const RegisterPage = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+  const { createUser } = use(AuthContext);
 
   // Scroll to top when component mounts
   useEffect(() => {
@@ -23,6 +26,20 @@ const RegisterPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle registration logic here
+
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    createUser(email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        console.log(errorMessage);
+      });
   };
 
   return (
@@ -65,6 +82,7 @@ const RegisterPage = () => {
                     <FaUser className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-sm" />
                     <input
                       type="text"
+                      name="name"
                       placeholder="Enter your full name"
                       required
                       className="w-full pl-11 pr-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-300"
@@ -81,6 +99,7 @@ const RegisterPage = () => {
                     <FaEnvelope className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-sm" />
                     <input
                       type="email"
+                      name="email"
                       placeholder="Enter your email"
                       required
                       className="w-full pl-11 pr-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-300"
@@ -97,6 +116,7 @@ const RegisterPage = () => {
                     <FaLock className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-sm" />
                     <input
                       type={showPassword ? "text" : "password"}
+                      name="password"
                       placeholder="Create a password"
                       required
                       className="w-full pl-11 pr-12 py-3 bg-gray-800/50 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-300"
