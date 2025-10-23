@@ -6,6 +6,7 @@ import GalleryPage from "../pages/GalleryPage";
 import LoginPage from "../pages/LoginPage";
 import RegisterPage from "../pages/RegisterPage";
 import GameDetails from "../pages/GameDetails";
+import PrivateRoute from "../provider/PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -23,12 +24,12 @@ export const router = createBrowserRouter([
   {
     path: "/gallery",
     loader: () => fetch("/data.json"),
-    Component: GalleryPage
+    element: <PrivateRoute><GalleryPage></GalleryPage></PrivateRoute>
   },
   {
     path: "/game/:id", 
     loader: () => fetch("/data.json"),
-    Component: GameDetails
+    element: <PrivateRoute><GameDetails></GameDetails></PrivateRoute>
   },
   {
     path: "/login", 

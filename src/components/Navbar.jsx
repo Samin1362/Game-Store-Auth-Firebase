@@ -1,10 +1,20 @@
-import React from "react";
+import React, { use } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { FaGamepad } from "react-icons/fa";
 import { AuthContext } from "../provider/AuthProvider";
 
 const Navbar = () => {
+  const { user, logOut } = use(AuthContext);
 
+  const handleLogout = () => {
+    logOut()
+      .then(() => {
+        alert("Successfully Logged Out.");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   const navLinks = (
     <>
@@ -12,7 +22,11 @@ const Navbar = () => {
         to="/"
         className={({ isActive }) =>
           `px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 
-          ${isActive ? "bg-cyan-500/20 text-cyan-400" : "text-gray-300 hover:text-cyan-400"}`
+          ${
+            isActive
+              ? "bg-cyan-500/20 text-cyan-400"
+              : "text-gray-300 hover:text-cyan-400"
+          }`
         }
       >
         Home
@@ -21,7 +35,11 @@ const Navbar = () => {
         to="/gallery"
         className={({ isActive }) =>
           `px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 
-          ${isActive ? "bg-cyan-500/20 text-cyan-400" : "text-gray-300 hover:text-cyan-400"}`
+          ${
+            isActive
+              ? "bg-cyan-500/20 text-cyan-400"
+              : "text-gray-300 hover:text-cyan-400"
+          }`
         }
       >
         Game Gallery
@@ -33,7 +51,10 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 w-full z-50 bg-linear-to-b from-[#0a0a0a] via-[#111] to-[#1a1a1a] text-gray-200 shadow-lg border-b border-gray-800 backdrop-blur-md">
       <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-3">
         {/* Logo + Title */}
-        <Link to="/" className="flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition">
+        <Link
+          to="/"
+          className="flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition"
+        >
           <FaGamepad className="text-2xl" />
           <h1 className="text-xl md:text-2xl font-extrabold tracking-wide bg-clip-text text-transparent bg-linear-to-r from-cyan-400 to-green-400">
             GameStore
@@ -45,12 +66,27 @@ const Navbar = () => {
 
         {/* Login Button */}
         <div className="hidden md:block">
-          <Link
+          {user ? (
+            <button
+              onClick={handleLogout}
+              className="px-5 py-2 bg-linear-to-r from-cyan-500 to-green-500 text-black font-semibold rounded-lg hover:from-cyan-400 hover:to-green-400 transition-all duration-300 shadow-md hover:shadow-cyan-500/30"
+            >
+              Logout
+            </button>
+          ) : (
+            <Link
+              to="/login"
+              className="px-5 py-2 bg-linear-to-r from-cyan-500 to-green-500 text-black font-semibold rounded-lg hover:from-cyan-400 hover:to-green-400 transition-all duration-300 shadow-md hover:shadow-cyan-500/30"
+            >
+              Login
+            </Link>
+          )}
+          {/* <Link
             to="/login"
             className="px-5 py-2 bg-linear-to-r from-cyan-500 to-green-500 text-black font-semibold rounded-lg hover:from-cyan-400 hover:to-green-400 transition-all duration-300 shadow-md hover:shadow-cyan-500/30"
           >
             Login
-          </Link>
+          </Link> */}
         </div>
 
         {/* Mobile Menu */}
@@ -63,7 +99,12 @@ const Navbar = () => {
               viewBox="0 0 24 24"
               stroke="currentColor"
             >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h8m-8 6h16"
+              />
             </svg>
           </label>
           <ul

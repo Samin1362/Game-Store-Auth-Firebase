@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, use } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { Link } from "react-router";
+import { Link, Navigate } from "react-router";
 import {
   FaGamepad,
   FaEnvelope,
@@ -9,9 +9,11 @@ import {
   FaEye,
   FaEyeSlash,
 } from "react-icons/fa";
+import { AuthContext } from "../provider/AuthProvider";
 
 const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const { signIn } = use(AuthContext);
 
   // Scroll to top when component mounts
   useEffect(() => {
@@ -20,7 +22,19 @@ const LoginPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle login logic here
+
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    signIn(email, password)
+      .then(() => {
+        alert("User Successfully Logged In")
+        
+      })
+      .catch((e) => console.log(e));
+
+    form.reset();
   };
 
   return (
@@ -63,6 +77,7 @@ const LoginPage = () => {
                     <FaEnvelope className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-sm" />
                     <input
                       type="email"
+                      name="email"
                       placeholder="Enter your email"
                       required
                       className="w-full pl-11 pr-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-300"
@@ -79,6 +94,7 @@ const LoginPage = () => {
                     <FaLock className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-sm" />
                     <input
                       type={showPassword ? "text" : "password"}
+                      name="password"
                       placeholder="Enter your password"
                       required
                       className="w-full pl-11 pr-12 py-3 bg-gray-800/50 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-300"
