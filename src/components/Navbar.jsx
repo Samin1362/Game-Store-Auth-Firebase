@@ -1,19 +1,21 @@
-import React, { use } from "react";
+import React, { useContext } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { FaGamepad } from "react-icons/fa";
 import { AuthContext } from "../provider/AuthProvider";
 import { FaUserCircle } from "react-icons/fa";
+import { useToast } from "../contexts/ToastContext";
 
 const Navbar = () => {
-  const { user, logOut } = use(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
+  const toast = useToast();
 
   const handleLogout = () => {
     logOut()
       .then(() => {
-        alert("Successfully Logged Out.");
+        toast.success("Successfully Logged Out!");
       })
       .catch((error) => {
-        alert(error);
+        toast.error(error.message || "Logout failed");
       });
   };
 

@@ -10,9 +10,11 @@ import {
   FaGoogle,
 } from "react-icons/fa";
 import { Link } from "react-router";
+import { useToast } from "../contexts/ToastContext";
 
 const RightSide = () => {
   const { user, googleSignIn, setUser } = useContext(AuthContext);
+  const toast = useToast();
   const [games, setGames] = useState([]);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -76,11 +78,11 @@ const RightSide = () => {
   const handleGooleSignIn = () => {
     googleSignIn()
       .then((userCredential) => {
-        alert("Google Sign In Successful.");
+        toast.success("Google Sign In Successful!");
         const user = userCredential.user;
         setUser(user);
       })
-      .catch((e) => alert(e));
+      .catch((e) => toast.error(e.message || "Sign in failed"));
   };
 
   return (

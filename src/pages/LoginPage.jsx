@@ -10,10 +10,12 @@ import {
   FaEyeSlash,
 } from "react-icons/fa";
 import { AuthContext } from "../provider/AuthProvider";
+import { useToast } from "../contexts/ToastContext";
 
 const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
   const { signIn, setUser, googleSignIn } = useContext(AuthContext);
+  const toast = useToast();
 
   const navigate = useNavigate();
 
@@ -34,9 +36,10 @@ const LoginPage = () => {
       .then((userCredential) => {
         const user = userCredential.user;
         setUser(user);
+        toast.success("Login Successful!");
         navigate("/");
       })
-      .catch((e) => alert(e));
+      .catch((e) => toast.error(e.message || "Login failed"));
 
     form.reset();
   };
@@ -48,10 +51,10 @@ const LoginPage = () => {
       .then((userCredential) => {
         const user = userCredential.user;
         setUser(user);
+        toast.success("Google Sign In Successful!");
         navigate("/");
-        alert("Google Sign In Successful");
       })
-      .catch((e) => alert(e));
+      .catch((e) => toast.error(e.message || "Google Sign In failed"));
   };
 
   return (
