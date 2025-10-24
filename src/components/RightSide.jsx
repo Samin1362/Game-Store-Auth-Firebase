@@ -1,7 +1,14 @@
 import React, { useEffect, useRef, useState, use } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import gsap from "gsap";
-import { FaUser, FaEnvelope, FaGamepad, FaFire } from "react-icons/fa";
+import {
+  FaUser,
+  FaEnvelope,
+  FaGamepad,
+  FaFire,
+  FaGithub,
+  FaGoogle,
+} from "react-icons/fa";
 import { Link } from "react-router";
 
 const RightSide = () => {
@@ -81,43 +88,82 @@ const RightSide = () => {
           <div className="p-3 bg-linear-to-r from-cyan-500 to-green-500 rounded-full">
             <FaUser className="text-white text-xl" />
           </div>
-          <h2 className="text-xl font-bold text-transparent bg-clip-text bg-linear-to-r from-cyan-400 to-green-400">
-            User Info
-          </h2>
+          {user ? (
+            <h2 className="text-xl font-bold text-transparent bg-clip-text bg-linear-to-r from-cyan-400 to-green-400">
+              User Info
+            </h2>
+          ) : (
+            <h2 className="text-xl font-bold text-transparent bg-clip-text bg-linear-to-r from-cyan-400 to-green-400">
+              Login
+            </h2>
+          )}
+          
         </div>
 
         {/* User Details */}
-        <div className="space-y-4">
-          {/* Name */}
-          <div className="bg-gray-800/50 rounded-lg p-4 border border-gray-700">
-            <div className="flex items-center gap-3">
-              <FaUser className="text-cyan-400 text-sm" />
-              <div>
-                <p className="text-gray-400 text-xs mb-1">Name</p>
-                <p className="text-white font-semibold">{user?.name}</p>
+        {user ? (
+          <div className="space-y-4">
+            {/* Name */}
+            <div className="bg-gray-800/50 rounded-lg p-4 border border-gray-700">
+              <div className="flex items-center gap-3">
+                <FaUser className="text-cyan-400 text-sm" />
+                <div>
+                  <p className="text-gray-400 text-xs mb-1">Name</p>
+                  <p className="text-white font-semibold">
+                    {user?.displayName}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Email */}
+            <div className="bg-gray-800/50 rounded-lg p-4 border border-gray-700">
+              <div className="flex items-center gap-3">
+                <FaEnvelope className="text-green-400 text-sm" />
+                <div>
+                  <p className="text-gray-400 text-xs mb-1">Email</p>
+                  <p className="text-white font-semibold text-sm break-all">
+                    {user?.email}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Status Badge */}
+            <div className="mt-4 flex items-center justify-center gap-2 py-2 bg-green-500/10 border border-green-500/30 rounded-lg">
+              <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+              <span className="text-green-400 text-sm font-semibold">
+                Online
+              </span>
+            </div>
+          </div>
+        ) : (
+          <div className="space-y-4">
+            {/* Name */}
+            <div className="bg-gray-800/50 rounded-lg p-4 border border-gray-700">
+              <div className="flex items-center gap-3">
+                <FaGoogle className="text-cyan-400 text-sm" />
+                <div>
+                  <p className="text-gray-400 text-xs mb-1">
+                    Login With Google
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Email */}
+            <div className="bg-gray-800/50 rounded-lg p-4 border border-gray-700">
+              <div className="flex items-center gap-3">
+                <FaGithub className="text-green-400 text-sm" />
+                <div>
+                  <p className="text-gray-400 text-xs mb-1">
+                    Login With Github
+                  </p>
+                </div>
               </div>
             </div>
           </div>
-
-          {/* Email */}
-          <div className="bg-gray-800/50 rounded-lg p-4 border border-gray-700">
-            <div className="flex items-center gap-3">
-              <FaEnvelope className="text-green-400 text-sm" />
-              <div>
-                <p className="text-gray-400 text-xs mb-1">Email</p>
-                <p className="text-white font-semibold text-sm break-all">
-                  {user?.email}
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Status Badge */}
-        <div className="mt-4 flex items-center justify-center gap-2 py-2 bg-green-500/10 border border-green-500/30 rounded-lg">
-          <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-          <span className="text-green-400 text-sm font-semibold">Online</span>
-        </div>
+        )}
       </div>
 
       {/* Newsletter/Featured Games Section */}

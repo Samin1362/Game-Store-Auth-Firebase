@@ -1,7 +1,7 @@
 import React, { useState, useEffect, use } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import {
   FaGamepad,
   FaUser,
@@ -15,8 +15,9 @@ import { AuthContext } from "../provider/AuthProvider";
 const RegisterPage = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const { createUser, updateUser, setUser } = use(AuthContext);
 
-  const { createUser } = use(AuthContext);
+  const navigate = useNavigate();
 
   // Scroll to top when component mounts
   useEffect(() => {
@@ -28,13 +29,19 @@ const RegisterPage = () => {
     // Handle registration logic here
 
     const form = e.target;
+    const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
 
     createUser(email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        console.log(user);
+        updateUser({ displayName: name })
+          .then(() => {
+            setUser(user);
+            navigate("/");
+          })
+          .catch((e) => alert(e));
       })
       .catch((error) => {
         const errorMessage = error.message;
