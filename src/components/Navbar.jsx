@@ -89,9 +89,16 @@ const Navbar = () => {
               </button>
             </div>
           ) : (
-            <div className="flex gap-2 items-center">
-              <div className="max-w-[60px]">
-                <FaUserCircle className="text-2xl" />
+            <div className="flex gap-3 items-center">
+              <div className="relative">
+                {/* Glow Effect */}
+                <div className="absolute inset-0 bg-linear-to-r from-cyan-500 to-green-500 rounded-full blur-md opacity-50 animate-pulse" />
+                {/* Icon Container */}
+                <div className="relative p-1.5 bg-linear-to-r from-cyan-500 to-green-500 rounded-full">
+                  <div className="bg-[#0a0a0a] rounded-full p-2">
+                    <FaUserCircle className="text-2xl text-cyan-400" />
+                  </div>
+                </div>
               </div>
               <Link
                 to="/login"
@@ -111,7 +118,10 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         <div className="md:hidden dropdown dropdown-end">
-          <label tabIndex={0} className="btn btn-ghost m-0 p-1">
+          <label
+            tabIndex={0}
+            className="btn btn-ghost btn-circle hover:bg-cyan-500/10 transition-colors"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-6 h-6 text-gray-300"
@@ -129,17 +139,86 @@ const Navbar = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 p-4 shadow bg-[#111] rounded-lg w-48 border border-gray-800"
+            className="menu dropdown-content mt-3 p-3 shadow-2xl bg-linear-to-b from-[#111] to-[#1a1a1a] rounded-xl w-64 border border-gray-700 backdrop-blur-lg z-100"
           >
-            {navLinks}
-            <li className="mt-2">
-              <Link
-                to="/login"
-                className="block w-full text-center px-4 py-2 bg-linear-to-r from-cyan-500 to-green-500 text-black font-semibold rounded-lg hover:from-cyan-400 hover:to-green-400 transition-all duration-300"
+            {/* Navigation Links */}
+            <li className="mb-1">
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  `px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 ${
+                    isActive
+                      ? "bg-cyan-500/20 text-cyan-400"
+                      : "text-gray-300 hover:bg-gray-800 hover:text-cyan-400"
+                  }`
+                }
               >
-                Login
-              </Link>
+                Home
+              </NavLink>
             </li>
+            <li className="mb-2">
+              <NavLink
+                to="/gallery"
+                className={({ isActive }) =>
+                  `px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 ${
+                    isActive
+                      ? "bg-cyan-500/20 text-cyan-400"
+                      : "text-gray-300 hover:bg-gray-800 hover:text-cyan-400"
+                  }`
+                }
+              >
+                Game Gallery
+              </NavLink>
+            </li>
+
+            {/* Divider */}
+            <div className="border-t border-gray-700 my-2" />
+
+            {/* User Section or Login */}
+            {user ? (
+              <>
+                {/* User Info */}
+                <li className="mb-2">
+                  <div className="px-3 py-3 bg-gray-800/50 rounded-lg border border-gray-700">
+                    <div className="flex items-center gap-3">
+                      <div className="p-0.5 bg-linear-to-r from-cyan-500 to-green-500 rounded-full shrink-0">
+                        <img
+                          className="w-10 h-10 rounded-full"
+                          src={user.photoURL}
+                          alt="user"
+                        />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-white text-sm font-semibold truncate">
+                          {user.displayName}
+                        </p>
+                        <p className="text-gray-400 text-xs truncate">
+                          {user.email}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                {/* Logout Button */}
+                <li>
+                  <button
+                    onClick={handleLogout}
+                    className="w-full text-center px-4 py-2.5 bg-linear-to-r from-red-500 to-orange-500 text-white font-semibold rounded-lg hover:from-red-400 hover:to-orange-400 transition-all duration-300 shadow-lg hover:shadow-red-500/30 active:scale-95"
+                  >
+                    Logout
+                  </button>
+                </li>
+              </>
+            ) : (
+              <li>
+                <Link
+                  to="/login"
+                  className="block w-full text-center px-4 py-2.5 bg-linear-to-r from-cyan-500 to-green-500 text-black font-semibold rounded-lg hover:from-cyan-400 hover:to-green-400 transition-all duration-300 shadow-lg hover:shadow-cyan-500/30 active:scale-95"
+                >
+                  Login
+                </Link>
+              </li>
+            )}
           </ul>
         </div>
       </div>

@@ -81,7 +81,7 @@ const Root = () => {
           {/* Hero Banner Section */}
           <div className="mt-[65px] relative">
             {/* Banner with enhanced wrapper */}
-            <div className="relative sm:h-[400px] md:h-[550px] overflow-hidden">
+            <div className="relative h-[300px] sm:h-[400px] md:h-[550px] overflow-hidden">
               <Banner />
 
               {/* Hero Overlay Content */}
