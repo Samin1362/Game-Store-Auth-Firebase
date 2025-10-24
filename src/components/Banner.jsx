@@ -19,11 +19,12 @@ const Banner = () => {
   }, []);
 
   // Manual navigation
-  const prevSlide = () => setCurrent((prev) => (prev - 1 + images.length) % images.length);
+  const prevSlide = () =>
+    setCurrent((prev) => (prev - 1 + images.length) % images.length);
   const nextSlide = () => setCurrent((prev) => (prev + 1) % images.length);
 
   return (
-    <div className="relative w-full h-[200px] md:h-[600px] overflow-hidden rounded-2xl shadow-xl bg-linear-to-b from-black via-[#111] to-black">
+    <div className="relative w-full h-full overflow-hidden bg-linear-to-b from-black via-[#111] to-black">
       {/* Slides */}
       {images.map((img, index) => (
         <div
@@ -34,7 +35,7 @@ const Banner = () => {
         >
           {/* Background Blur Layer */}
           <div
-            className="absolute inset-0 bg-center bg-cover blur-2xl opacity-40"
+            className="absolute inset-0 bg-center bg-cover blur-3xl opacity-30"
             style={{ backgroundImage: `url(${img})` }}
           ></div>
 
@@ -43,8 +44,11 @@ const Banner = () => {
             src={img}
             alt={`slide-${index}`}
             loading="lazy"
-            className="relative w-full h-full object-contain md:object-contain transition-transform duration-700 ease-in-out"
+            className="relative w-full h-full object-contain md:object-contain transition-transform duration-700 ease-in-out opacity-60"
           />
+
+          {/* Dark Overlay for better text readability */}
+          <div className="absolute inset-0 bg-black/40" />
         </div>
       ))}
 

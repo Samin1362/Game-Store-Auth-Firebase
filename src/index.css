@@ -7,7 +7,6 @@
   font-style: normal;
 }
 
-
 @import "tailwindcss";
 
 @plugin "daisyui" {
@@ -17,11 +16,29 @@
 @plugin "daisyui/theme" {
   name: "light";
   default: true;
-  --color-primary: blue; 
+  --color-primary: blue;
   --color-secondary: teal;
 }
 
 .active {
   background-color: rgb(214, 214, 214);
   border-radius: 10px;
+}
+
+/* Marquee Animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
 }

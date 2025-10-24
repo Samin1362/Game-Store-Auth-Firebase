@@ -39,6 +39,9 @@ const GameDetails = () => {
   const descriptionRef = useRef(null);
 
   useEffect(() => {
+    // Set dynamic title based on game name
+    document.title = `${title} | Game Hub`;
+
     // Scroll to top immediately when component mounts
     window.scrollTo({ top: 0, behavior: "instant" });
 

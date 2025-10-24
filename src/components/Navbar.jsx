@@ -2,6 +2,7 @@ import React, { use } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { FaGamepad } from "react-icons/fa";
 import { AuthContext } from "../provider/AuthProvider";
+import { FaUserCircle } from "react-icons/fa";
 
 const Navbar = () => {
   const { user, logOut } = use(AuthContext);
@@ -12,7 +13,7 @@ const Navbar = () => {
         alert("Successfully Logged Out.");
       })
       .catch((error) => {
-        alert(error)
+        alert(error);
       });
   };
 
@@ -68,6 +69,15 @@ const Navbar = () => {
         <div className="hidden md:block">
           {user ? (
             <div className="flex items-center gap-2">
+              <div className="p-1 bg-linear-to-r from-cyan-500 to-green-500 rounded-full">
+                <div className="max-w-10">
+                  <img
+                    className="rounded-full"
+                    src={user.photoURL}
+                    alt="user image"
+                  />
+                </div>
+              </div>
               <h1>{user.displayName}</h1>
               <button
                 onClick={handleLogout}
@@ -77,12 +87,17 @@ const Navbar = () => {
               </button>
             </div>
           ) : (
-            <Link
-              to="/login"
-              className="px-5 py-2 bg-linear-to-r from-cyan-500 to-green-500 text-black font-semibold rounded-lg hover:from-cyan-400 hover:to-green-400 transition-all duration-300 shadow-md hover:shadow-cyan-500/30"
-            >
-              Login
-            </Link>
+            <div className="flex gap-2 items-center">
+              <div className="max-w-[60px]">
+                <FaUserCircle className="text-2xl" />
+              </div>
+              <Link
+                to="/login"
+                className="px-5 py-2 bg-linear-to-r from-cyan-500 to-green-500 text-black font-semibold rounded-lg hover:from-cyan-400 hover:to-green-400 transition-all duration-300 shadow-md hover:shadow-cyan-500/30"
+              >
+                Login
+              </Link>
+            </div>
           )}
           {/* <Link
             to="/login"

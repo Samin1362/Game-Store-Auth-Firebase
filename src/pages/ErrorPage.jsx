@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import { Link } from "react-router-dom";
 import { AlertTriangle } from "lucide-react";
 import Footer from "../components/Footer";
 
 const ErrorPage = () => {
+  useEffect(() => {
+    document.title = "404 - Page Not Found | Game Hub";
+  }, []);
+
   return (
     <div className="min-h-screen mt-[70px] flex flex-col bg-linear-to-b from-gray-50 to-gray-100 text-gray-800">
       <Navbar />
@@ -18,8 +22,8 @@ const ErrorPage = () => {
           <h1 className="text-6xl font-extrabold text-gray-800">404</h1>
           <h2 className="text-2xl font-semibold">Page Not Found</h2>
           <p className="max-w-md text-gray-500">
-            Oops! The page you’re looking for doesn’t exist or may have been moved.
-            Let’s get you back to safety.
+            Oops! The page you’re looking for doesn’t exist or may have been
+            moved. Let’s get you back to safety.
           </p>
 
           <Link

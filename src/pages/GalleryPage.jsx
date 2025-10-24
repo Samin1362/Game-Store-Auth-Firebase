@@ -11,6 +11,7 @@ const GalleryPage = () => {
 
   // Scroll to top when component mounts
   useEffect(() => {
+    document.title = "All Games Gallery | Game Hub";
     window.scrollTo({ top: 0, behavior: "instant" });
   }, []);
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, use } from "react";
+import React, { useEffect, useRef, useState, useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import gsap from "gsap";
 import {
@@ -12,7 +12,7 @@ import {
 import { Link } from "react-router";
 
 const RightSide = () => {
-  const { user, googleSignIn } = use(AuthContext);
+  const { user, googleSignIn, setUser } = useContext(AuthContext);
   const [games, setGames] = useState([]);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -75,8 +75,10 @@ const RightSide = () => {
 
   const handleGooleSignIn = () => {
     googleSignIn()
-      .then(() => {
+      .then((userCredential) => {
         alert("Google Sign In Successful.");
+        const user = userCredential.user;
+        setUser(user);
       })
       .catch((e) => alert(e));
   };
@@ -93,9 +95,7 @@ const RightSide = () => {
 
         {/* Header */}
         <div className="flex items-center gap-3 mb-4">
-          <div className="p-3 bg-linear-to-r from-cyan-500 to-green-500 rounded-full">
-            <FaUser className="text-white text-xl" />
-          </div>
+          <FaUser className="text-cyan-400 text-sm" />
           {user ? (
             <h2 className="text-xl font-bold text-transparent bg-clip-text bg-linear-to-r from-cyan-400 to-green-400">
               User Info
@@ -113,7 +113,15 @@ const RightSide = () => {
             {/* Name */}
             <div className="bg-gray-800/50 rounded-lg p-4 border border-gray-700">
               <div className="flex items-center gap-3">
-                <FaUser className="text-cyan-400 text-sm" />
+                <div className="p-1 bg-linear-to-r from-cyan-500 to-green-500 rounded-full">
+                  <div className="max-w-10">
+                    <img
+                      className="rounded-full"
+                      src={user.photoURL}
+                      alt="user image"
+                    />
+                  </div>
+                </div>
                 <div>
                   <p className="text-gray-400 text-xs mb-1">Name</p>
                   <p className="text-white font-semibold">
@@ -156,18 +164,6 @@ const RightSide = () => {
                 <div>
                   <p className="text-gray-400 text-xs mb-1">
                     Login With Google
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Email */}
-            <div className="bg-gray-800/50 rounded-lg p-4 border border-gray-700 hover:bg-gray-900">
-              <div className="flex items-center gap-3">
-                <FaGithub className="text-green-400 text-sm" />
-                <div>
-                  <p className="text-gray-400 text-xs mb-1">
-                    Login With Github
                   </p>
                 </div>
               </div>
