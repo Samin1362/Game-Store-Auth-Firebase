@@ -45,7 +45,7 @@ const RegisterPage = () => {
       })
       .catch((error) => {
         const errorMessage = error.message;
-        console.log(errorMessage);
+        alert(errorMessage)
       });
   };
 

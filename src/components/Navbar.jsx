@@ -12,7 +12,7 @@ const Navbar = () => {
         alert("Successfully Logged Out.");
       })
       .catch((error) => {
-        console.log(error);
+        alert(error)
       });
   };
 
@@ -67,12 +67,15 @@ const Navbar = () => {
         {/* Login Button */}
         <div className="hidden md:block">
           {user ? (
-            <button
-              onClick={handleLogout}
-              className="px-5 py-2 bg-linear-to-r from-cyan-500 to-green-500 text-black font-semibold rounded-lg hover:from-cyan-400 hover:to-green-400 transition-all duration-300 shadow-md hover:shadow-cyan-500/30"
-            >
-              Logout
-            </button>
+            <div className="flex items-center gap-2">
+              <h1>{user.displayName}</h1>
+              <button
+                onClick={handleLogout}
+                className="px-5 py-2 bg-linear-to-r from-cyan-500 to-green-500 text-black font-semibold rounded-lg hover:from-cyan-400 hover:to-green-400 transition-all duration-300 shadow-md hover:shadow-cyan-500/30"
+              >
+                Logout
+              </button>
+            </div>
           ) : (
             <Link
               to="/login"

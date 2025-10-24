@@ -1,7 +1,7 @@
 import React, { useState, useEffect, use } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { Link, Navigate } from "react-router";
+import { Link, Navigate, useNavigate } from "react-router";
 import {
   FaGamepad,
   FaEnvelope,
@@ -13,7 +13,9 @@ import { AuthContext } from "../provider/AuthProvider";
 
 const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const { signIn } = use(AuthContext);
+  const { signIn, setUser } = use(AuthContext);
+
+  const navigate = useNavigate();
 
   // Scroll to top when component mounts
   useEffect(() => {
@@ -28,11 +30,12 @@ const LoginPage = () => {
     const password = form.password.value;
 
     signIn(email, password)
-      .then(() => {
-        alert("User Successfully Logged In")
-        
+      .then((userCredential) => {
+        const user = userCredential.user;
+        setUser(user);
+        navigate("/");  
       })
-      .catch((e) => console.log(e));
+      .catch((e) => alert(e));
 
     form.reset();
   };

@@ -10,15 +10,15 @@ const Root = () => {
     <div>
       <header className="flex flex-col">
         <Navbar></Navbar>
-        <div className="mt-[65px] h-[300px] sm:h-[400px] md:h-[500px] overflow-hidden">
+        <div className="mt-[65px] sm:h-[400px] md:h-[500px] overflow-hidden">
           <Banner />
         </div>
       </header>
-      <main className="flex">
-        <div className="w-3/4">
+      <main className="flex mt-5 flex-col md:flex-row">
+        <div className="md:w-3/4">
           <Outlet></Outlet>
         </div>
-        <aside className="w-1/4 mt-[30px]">
+        <aside className="md:w-1/4 mt-[30px] p-4 mx-auto">
           <RightSide></RightSide>
         </aside>
       </main>

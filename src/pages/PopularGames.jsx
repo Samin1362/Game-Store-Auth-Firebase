@@ -16,7 +16,7 @@ const PopularGames = () => {
 
   return (
     <div>
-      <h1 className="my-4 font-bold text-2xl text-center">
+      <h1 className="md:my-4 font-bold text-2xl text-center">
         This are Popular Games.
       </h1>
       {<Cards games={filteredGames}></Cards>}

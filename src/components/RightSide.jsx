@@ -140,7 +140,7 @@ const RightSide = () => {
         ) : (
           <div className="space-y-4">
             {/* Name */}
-            <div className="bg-gray-800/50 rounded-lg p-4 border border-gray-700">
+            <div className="bg-gray-800/50 rounded-lg p-4 border border-gray-700 hover:bg-gray-900">
               <div className="flex items-center gap-3">
                 <FaGoogle className="text-cyan-400 text-sm" />
                 <div>
@@ -152,7 +152,7 @@ const RightSide = () => {
             </div>
 
             {/* Email */}
-            <div className="bg-gray-800/50 rounded-lg p-4 border border-gray-700">
+            <div className="bg-gray-800/50 rounded-lg p-4 border border-gray-700 hover:bg-gray-900">
               <div className="flex items-center gap-3">
                 <FaGithub className="text-green-400 text-sm" />
                 <div>
