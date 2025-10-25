@@ -7,6 +7,7 @@ import LoginPage from "../pages/LoginPage";
 import RegisterPage from "../pages/RegisterPage";
 import GameDetails from "../pages/GameDetails";
 import PrivateRoute from "../provider/PrivateRoute";
+import UpdateUserPage from "../pages/UpdateUserPage";
 
 export const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ export const router = createBrowserRouter([
   {
     path: "/register",
     Component: RegisterPage
+  },
+  {
+    path: "/update", 
+    Component: UpdateUserPage
   },
   {
     path: "*", 

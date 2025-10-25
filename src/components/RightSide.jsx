@@ -8,6 +8,8 @@ import {
   FaFire,
   FaGithub,
   FaGoogle,
+  FaEdit,
+  FaArrowRight,
 } from "react-icons/fa";
 import { Link } from "react-router";
 import { useToast } from "../contexts/ToastContext";
@@ -145,6 +147,34 @@ const RightSide = () => {
                 </div>
               </div>
             </div>
+
+            <Link to="/update">
+              <button className="group relative w-full overflow-hidden rounded-xl bg-linear-to-r from-cyan-500 via-green-500 to-cyan-500 p-[2px] transition-all duration-300 hover:shadow-[0_0_30px_rgba(6,182,212,0.5)] hover:scale-[1.02] animate-[gradient_3s_ease_infinite] bg-size-[200%_200%]">
+                {/* Animated Background */}
+                <div className="absolute inset-0 bg-linear-to-r from-cyan-500 via-green-500 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-[gradient_3s_ease_infinite] bg-size-[200%_200%]" />
+
+                {/* Button Content */}
+                <div className="relative bg-gray-900 rounded-[10px] px-6 py-3 flex items-center justify-between gap-3 group-hover:bg-transparent transition-all duration-300">
+                  {/* Left Icon with Animation */}
+                  <div className="flex items-center gap-3">
+                    <div className="relative">
+                      <FaEdit className="text-cyan-400 text-lg group-hover:text-white transition-all duration-300 group-hover:rotate-12 group-hover:scale-110" />
+                      {/* Pulse Effect */}
+                      <span className="absolute inset-0 rounded-full bg-cyan-400/30 animate-ping opacity-0 group-hover:opacity-75"></span>
+                    </div>
+                    <span className="text-white font-bold text-sm group-hover:tracking-wider transition-all duration-300">
+                      Update User Info
+                    </span>
+                  </div>
+
+                  {/* Right Arrow with Animation */}
+                  <FaArrowRight className="text-cyan-400 group-hover:text-white transition-all duration-300 group-hover:translate-x-1" />
+                </div>
+
+                {/* Shimmer Effect */}
+                <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-linear-to-r from-transparent via-white/20 to-transparent" />
+              </button>
+            </Link>
 
             {/* Status Badge */}
             <div className="mt-4 flex items-center justify-center gap-2 py-2 bg-green-500/10 border border-green-500/30 rounded-lg">
