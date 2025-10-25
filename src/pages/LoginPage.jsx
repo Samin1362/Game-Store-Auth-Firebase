@@ -14,7 +14,8 @@ import { useToast } from "../contexts/ToastContext";
 
 const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const { signIn, setUser, googleSignIn } = useContext(AuthContext);
+  const { signIn, setUser, googleSignIn, resetPasswordEmail } =
+    useContext(AuthContext);
   const toast = useToast();
 
   const navigate = useNavigate();
@@ -55,6 +56,17 @@ const LoginPage = () => {
         navigate("/");
       })
       .catch((e) => toast.error(e.message || "Google Sign In failed"));
+  };
+
+  const handleForgotPassword = (e) => {
+    e.preventDefault();
+
+    const email = e.target.form.email.value;
+    resetPasswordEmail(email)
+      .then(() => {
+        toast.success("Check Email");
+      })
+      .catch((e) => toast.error(e.message));
   };
 
   return (
@@ -128,6 +140,14 @@ const LoginPage = () => {
                     </button>
                   </div>
                 </div>
+
+                <button
+                  onClick={handleForgotPassword}
+                  className="text-white"
+                  type="submit"
+                >
+                  Forgot Password?
+                </button>
 
                 {/* Login Button */}
                 <button
