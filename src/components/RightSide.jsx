@@ -149,7 +149,7 @@ const RightSide = () => {
             </div>
 
             <Link to="/update">
-              <button className="group relative w-full overflow-hidden rounded-xl bg-linear-to-r from-cyan-500 via-green-500 to-cyan-500 p-[2px] transition-all duration-300 hover:shadow-[0_0_30px_rgba(6,182,212,0.5)] hover:scale-[1.02] animate-[gradient_3s_ease_infinite] bg-size-[200%_200%]">
+              <button className="group relative w-full overflow-hidden rounded-xl bg-linear-to-r from-cyan-500 via-green-500 to-cyan-500 p-0.5 transition-all duration-300 hover:shadow-[0_0_30px_rgba(6,182,212,0.5)] hover:scale-[1.02] animate-[gradient_3s_ease_infinite] bg-size-[200%_200%]">
                 {/* Animated Background */}
                 <div className="absolute inset-0 bg-linear-to-r from-cyan-500 via-green-500 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-[gradient_3s_ease_infinite] bg-size-[200%_200%]" />
 
