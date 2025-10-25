@@ -10,7 +10,7 @@ Game Hub is a modern web application where gamers can explore popular games, vie
 
 ## Live URL
 
-🌐 **Live Site:** [Add your live URL here]
+🌐 **Live Site:** [(https://game-store-firebase-auth.web.app)]
 
 ## Key Features
 
